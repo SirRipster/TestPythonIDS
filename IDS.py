@@ -15,6 +15,7 @@ class PacketCapture:
     def start_capture(self, interface="eth0"):
         def capture_thread():
             sniff(iface=interface,
+            
                   prn=self.packet_callback,
                   store=0,
                   stop_filter=lambda _: self.stop_capture.is_set())
